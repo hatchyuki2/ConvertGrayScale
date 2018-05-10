@@ -4,7 +4,7 @@ Add-Type -AssemblyName presentationframework
 Add-Type -AssemblyName System.Windows.Forms
 
 # BitmapSourceに変換し，グレースケール化
-function ConvertGrayScale($src_image) {
+function ConvertToGrayScale($src_image) {
 
     $image_width = $src_image.Width
     $image_height = $src_image.Height
@@ -75,7 +75,7 @@ ForEach-Object {
         $src_image = [System.Drawing.Image]::FromFile($_.FullName)
     
         # 画像処理の関数を実行
-        $tmp_image = ConvertGrayScale $src_image
+        $tmp_image = ConvertToGrayScale $src_image
         
         $dst_image = New-Object System.Drawing.Bitmap($tmp_image[1])
         
